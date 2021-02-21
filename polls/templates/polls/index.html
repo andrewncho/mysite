@@ -1,5 +1,31 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
 {% load static %}
-
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/polls">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/polls/1/vote">Poll</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/polls/thoughts">Thoughts</a>
+        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/polls/thoughts/list">Thoughts List</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+{% block title %}
+<div style="text-align: center;">
+<h2>Poll</h2>
+</div>
+{% endblock %}
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 {% if latest_question_list %}
     <ul>
@@ -10,3 +36,12 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+<footer>
+<div class= "navbar navbar-inverse navbar-static-bottom" role="navigation">
+    <div class="navbar-text pull-left">
+    </div>
+    <div class="navbar-text pull-left">
+    &copy; Andrew Cho, copyright 2021
+    </div>
+</div>
+</footer>
