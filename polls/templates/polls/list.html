@@ -1,0 +1,10 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:thoughts' %}" method="post">
+{% csrf_token %}
+{% for thoughts in thoughtslist %}
+<li>{{ thoughts.title }} -- {{ thoughts.thoughtsbox }} </li>
+{% endfor %}
+</form>

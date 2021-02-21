@@ -1,0 +1,21 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:thoughts' %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+    <g class="text-uppercase">
+    <b>Title: </b> <br>
+    </g>
+    <input type="text" name="title"><br>
+    <a class="text-uppercase">
+    <b> Thoughts: </b> <br>
+    </a>
+    <textarea class = "form-control" rows="10" cols = "50" name = "thoughts"></textarea>
+
+    <input type="submit" value="Thoughts">
+</form>
